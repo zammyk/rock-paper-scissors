@@ -66,8 +66,12 @@ function playRoundHelper(e){
         console.log("Invalid Input!");
         return;
     }
-    let roundResultMessage = "Computer chose: "+computerSelection+". Round verdict: "+ playRound(playerSelection, computerSelection);
+    let playRoundResult = playRound(playerSelection, computerSelection);
+    if(playRoundResult == winMessage)
+        score+=5;
+    let roundResultMessage = "Computer chose: "+computerSelection+". Round verdict: "+ playRoundResult;
     roundResult.textContent = roundResultMessage;
+    scoreDisplay.textContent = score;
 }
 
 let rockBtn = document.getElementById('rockBtn');
@@ -75,7 +79,8 @@ let paperBtn = document.getElementById('paperBtn');
 let scissorBtn = document.getElementById('scissorBtn');
 
 let roundResult = document.querySelector('.round-result');
-let score = document.querySelector('.score');
+let scoreDisplay = document.querySelector('.score');
+let score = 0;
 
 rockBtn.addEventListener('click',playRoundHelper);
 paperBtn.addEventListener('click',playRoundHelper);
