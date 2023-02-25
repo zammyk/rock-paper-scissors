@@ -33,19 +33,19 @@ function isValidSelection(playerSelection) {
     return false;
 }
 
-function game(){
-    for(let i = 0;i <5;i++)
-    {
-        let playerSelection = prompt("Enter your choice:");
-        if(isValidSelection(playerSelection) == false)
-        {
-            console.log(invalidMessage);
-            continue;
-        }
-        playerSelection = playerSelection.toLowerCase();
-        let computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection,computerSelection));
-    }
-}
+// function game(){
+//     for(let i = 0;i <5;i++)
+//     {
+//         let playerSelection = prompt("Enter your choice:");
+//         if(isValidSelection(playerSelection) == false)
+//         {
+//             console.log(invalidMessage);
+//             continue;
+//         }
+//         playerSelection = playerSelection.toLowerCase();
+//         let computerSelection = getComputerChoice();
+//         console.log(playRound(playerSelection,computerSelection));
+//     }
+// }
 
-game();
+// game();
