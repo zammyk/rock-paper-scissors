@@ -53,6 +53,14 @@ function game(){
 game();
 */
 
+function updateScoreDisplay(newScore){
+    scoreDisplay.textContent = newScore;
+}
+
+function updateResultDisplay(resultMessage){
+    roundResult.textContent = resultMessage;
+}
+
 function playRoundHelper(e){
     let computerSelection = getComputerChoice();
     let playerSelection;
@@ -69,14 +77,22 @@ function playRoundHelper(e){
     let playRoundResult = playRound(playerSelection, computerSelection);
     if(playRoundResult == winMessage)
         score+=5;
-    let roundResultMessage = "Computer chose: "+computerSelection+". Round verdict: "+ playRoundResult;
-    roundResult.textContent = roundResultMessage;
-    scoreDisplay.textContent = score;
+    let roundResultMessage = "Computer chose: " + computerSelection + ". Round verdict: " + playRoundResult;
+    updateResultDisplay(roundResultMessage);
+    updateScoreDisplay(score);
+}
+
+function resetScore(e){
+    score = 0;
+    let roundResultMessage = "Computer chose: ... Round verdict: ...";
+    updateResultDisplay(roundResultMessage);
+    updateScoreDisplay(score);
 }
 
 let rockBtn = document.getElementById('rockBtn');
 let paperBtn = document.getElementById('paperBtn');
 let scissorBtn = document.getElementById('scissorBtn');
+let resetBtn = document.getElementById('resetBtn');
 
 let roundResult = document.querySelector('.round-result');
 let scoreDisplay = document.querySelector('.score');
@@ -85,3 +101,4 @@ let score = 0;
 rockBtn.addEventListener('click',playRoundHelper);
 paperBtn.addEventListener('click',playRoundHelper);
 scissorBtn.addEventListener('click',playRoundHelper);
+resetBtn.addEventListener('click',resetScore);
