@@ -34,7 +34,6 @@ function isValidSelection(playerSelection) {
     return false;
 }
 
-/*
 function game(){
     for(let i = 0;i <5;i++)
     {
@@ -50,8 +49,7 @@ function game(){
     }
 }
 
-game();
-*/
+// game();
 
 function updateScoreDisplay(newScore){
     scoreDisplay.textContent = newScore;
@@ -77,16 +75,27 @@ function playRoundHelper(e){
     let playRoundResult = playRound(playerSelection, computerSelection);
     if(playRoundResult == winMessage)
         score+=5;
+
+    /*
     let roundResultMessage = "Computer chose: " + computerSelection + ". Round verdict: " + playRoundResult;
-    updateResultDisplay(roundResultMessage);
-    updateScoreDisplay(score);
+    */
+
+    if(computerSelection == 'rock')
+        computerChoiceDisplay.innerHTML = "<img src='images/rock.png' class = 'rps-image'/>";
+    else if(computerSelection == 'paper')
+        computerChoiceDisplay.innerHTML = "<img src='images/paper.png' class = 'rps-image'/>";
+    else
+        computerChoiceDisplay.innerHTML = "<img src='images/scissor.png' class = 'rps-image'/>";
+    console.log(score);
 }
 
 function resetScore(e){
     score = 0;
     let roundResultMessage = "Computer chose: ... Round verdict: ...";
+    /*
     updateResultDisplay(roundResultMessage);
     updateScoreDisplay(score);
+    */
 }
 
 let rockBtn = document.getElementById('rockBtn');
@@ -96,6 +105,7 @@ let resetBtn = document.getElementById('resetBtn');
 
 let roundResult = document.querySelector('.round-result');
 let scoreDisplay = document.querySelector('.score');
+let computerChoiceDisplay = document.querySelector('.computer-choice');
 let score = 0;
 
 rockBtn.addEventListener('click',playRoundHelper);

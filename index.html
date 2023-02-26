@@ -9,24 +9,28 @@
 </head>
 <body>
     <div class="button-container">
-        <button id = "rockBtn">
+        <button id = "rockBtn" class = "rps-image">
             <img src = "images/rock.png">
             <br/>
             Rock
         </button>
-        <button id = "paperBtn">
+        <button id = "paperBtn" class = "rps-image">
             <img src = "images/paper.png">
             <br/>
             Paper
         </button>
-        <button id = "scissorBtn">
+        <button id = "scissorBtn" class = "rps-image">
             <img src = "images/scissor.png">
             <br/>
             Scissor
         </button>
     </div>
-    <div class="score-sheet">
+    <!-- <div class="score-sheet">
         <div class="round-result">Computer chose:... Round verdict: ...</div>
+    </div> -->
+    <div class="computer-choice-section">
+        <div class = "player-name">Computer's Choice:</div>
+        <div class="computer-choice"></div>
     </div>
     <button id = "resetBtn">Reset</button>
     <script src = "index.js"></script>

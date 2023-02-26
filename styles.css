@@ -23,9 +23,22 @@ body{
     padding-bottom: 50px;
 }
 
-.button-container > button {
+.rps-image {
     background-color: white;
     border-radius: 5px;
     border-style: solid;
     border-color: black;
+}
+
+.computer-choice-section {
+    display: flex;
+    min-height: 70px;
+    width: 300px;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+.player-name {
+    margin-top: auto;
+    margin-bottom: auto;
 }
