@@ -42,3 +42,13 @@ body{
     margin-top: auto;
     margin-bottom: auto;
 }
+
+.score-sheet {
+    width: 300px;
+    padding-bottom: 50px;
+}
+
+.player-score-section {
+    display: flex;
+    justify-content: space-between;
+}

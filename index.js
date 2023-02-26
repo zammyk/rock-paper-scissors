@@ -81,18 +81,18 @@ function playRoundHelper(e){
     */
 
     if(computerSelection == 'rock')
-        computerChoiceDisplay.innerHTML = "<img src='images/rock.png' class = 'rps-image'/>";
+        computerChoiceDisplay.innerHTML = "<img src='images/rock.png' class = 'rps-image'/><br/>";
     else if(computerSelection == 'paper')
-        computerChoiceDisplay.innerHTML = "<img src='images/paper.png' class = 'rps-image'/>";
+        computerChoiceDisplay.innerHTML = "<img src='images/paper.png' class = 'rps-image'/><br/>";
     else
-        computerChoiceDisplay.innerHTML = "<img src='images/scissor.png' class = 'rps-image'/>";
+        computerChoiceDisplay.innerHTML = "<img src='images/scissor.png' class = 'rps-image'/><br/>";
     console.log(score);
 }
 
 function resetScore(e){
     score = 0;
-    let roundResultMessage = "Computer chose: ... Round verdict: ...";
     /*
+    let roundResultMessage = "Computer chose: ... Round verdict: ...";
     updateResultDisplay(roundResultMessage);
     updateScoreDisplay(score);
     */
