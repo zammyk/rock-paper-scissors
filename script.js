@@ -74,7 +74,9 @@ function playRoundHelper(e){
     }
     let playRoundResult = playRound(playerSelection, computerSelection);
     if(playRoundResult == winMessage)
-        score+=5;
+        playerScore += 1;
+    else if(playRoundResult == loseMessage)
+        computerScore += 1;
 
     /*
     let roundResultMessage = "Computer chose: " + computerSelection + ". Round verdict: " + playRoundResult;
@@ -86,11 +88,45 @@ function playRoundHelper(e){
         computerChoiceDisplay.innerHTML = "<img src='images/paper.png' class = 'rps-image'/><br/>";
     else
         computerChoiceDisplay.innerHTML = "<img src='images/scissor.png' class = 'rps-image'/><br/>";
-    console.log(score);
+
+    document.querySelector('.player-score').textContent = playerScore;
+    document.querySelector('.computer-score').textContent = computerScore;
+
+    if(playerScore == 5)
+        winnerAnnouncement = "You win!";
+    if(computerScore == 5)
+        winnerAnnouncement = "Computer wins!";
+
+    if(Math.max(playerScore,computerScore) == 5)
+        displayWinner();
+}
+
+function reloadPage(e){
+    window.location.reload();
+}
+
+function displayWinner(){
+    let announcementSection =`
+                        <div class = "announcement">
+                            ${winnerAnnouncement}
+                        </div>
+                        <button id = "playAgainBtn">Play Again?</button>
+                        `;
+    body.innerHTML = announcementSection;
+    let playAgainBtn = document.getElementById('playAgainBtn');
+    playAgainBtn.addEventListener('click',reloadPage);
 }
 
 function resetScore(e){
-    score = 0;
+    playerScore = 0;
+    computerScore = 0;
+    document.querySelector('.player-score').textContent = playerScore;
+    document.querySelector('.computer-score').textContent = computerScore;
+
+    /* somehow magically injects script again? 
+    body.innerHTML = playingSection.append(document.createRange().createContextualFragment());
+    */
+
     /*
     let roundResultMessage = "Computer chose: ... Round verdict: ...";
     updateResultDisplay(roundResultMessage);
@@ -106,9 +142,14 @@ let resetBtn = document.getElementById('resetBtn');
 let roundResult = document.querySelector('.round-result');
 let scoreDisplay = document.querySelector('.score');
 let computerChoiceDisplay = document.querySelector('.computer-choice');
-let score = 0;
+let body = document.querySelector('body');
+let playerScore = 0;
+let computerScore = 0;
+let winnerAnnouncement = "";
+
+let playingSection = body.innerHTML;
 
 rockBtn.addEventListener('click',playRoundHelper);
 paperBtn.addEventListener('click',playRoundHelper);
 scissorBtn.addEventListener('click',playRoundHelper);
-resetBtn.addEventListener('click',resetScore);
+resetBtn.addEventListener('click',reloadPage);
